@@ -1,0 +1,125 @@
+---
+import NavHeader from "./NavHeader.astro";
+import { IoIosHeartEmpty } from "react-icons/io/index";
+import { IoBagOutline, IoSearchOutline } from "react-icons/io5/index";
+import { PiUserCircle } from "react-icons/pi/index";
+
+import "../css/main.css";
+---
+
+<div
+  id="--scrphotography-navbar-mobile"
+  class="navbar-home block visible text-gray-900 bg-white m-0 fixed w-60 h-screen top-0 pt-7 ps-4 pe-7 z-30 -left-60 translate-x-0 transition-transform duration-300"
+>
+  <!-- class+="lg:collapse lg:hidden lg:m-auto lg:static lg:w-auto lg:h-auto lg:top-auto lg:p-0 lg:z-auto lg:right-auto lg:translate-x-0" -->
+  <ul class="flex items-start mt-5 px-2 flex-col">
+    <li class="my-4"></li>
+    <li class="my-2.5">
+      <a
+        href="/exponencia-tu-proyecto"
+        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <span class="pe-3"><IoSearchOutline /></span>
+          <span>Buscar</span>
+        </div>
+      </a>
+    </li>
+    <li class="my-2.5">
+      <a
+        href="/exponencia-tu-proyecto"
+        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <span class="pe-3"><IoBagOutline /></span>
+          <span>Bolsa de compra</span>
+        </div>
+      </a>
+    </li>
+    <li class="my-2.5">
+      <a
+        href="/exponencia-tu-proyecto"
+        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <span class="pe-3"><PiUserCircle /></span>
+          <span>Perfil</span>
+        </div>
+      </a>
+    </li>
+    <li class="my-2.5">
+      <a
+        href="/exponencia-tu-proyecto"
+        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <span class="pe-3"><IoIosHeartEmpty /></span>
+          <span>Favoritos</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+<NavHeader />
+<div
+  class="visible fixed top-0 left-0 w-full h-screen z-20 bg-[rgba(0,0,0,0.5)] hidden"
+  id="--scrphotography-navbar-back"
+>
+  <!-- class+="lg:collapse lg:static lg:top-auto lg:left-auto lg:w-auto lg:h-auto lg:z-auto" -->
+</div>
+<script>
+  let stateMobileMenuOpen: boolean = false;
+
+  let __c2dev_navbar_back!: HTMLElement;
+  let __c2dev_navbar_hamburger!: HTMLElement;
+  let __c2dev_navbar_mobile!: HTMLElement;
+
+  const hamburgerMenu = (() => {
+    const _updateHamburgerMenu = (stateMobileOpen: boolean) => {
+      const __inner = (isOpen: boolean) => {
+        const backVis = (isOpen: boolean) => {
+          return isOpen ? "block" : "hidden";
+        };
+        const navVis = (isOpen: boolean) => {
+          return isOpen ? "translate-x-60" : "translate-x-0";
+        };
+
+        __c2dev_navbar_back.classList.replace(
+          backVis(!isOpen),
+          backVis(isOpen)
+        );
+        __c2dev_navbar_mobile.classList.replace(
+          navVis(!isOpen),
+          navVis(isOpen)
+        );
+      };
+
+      __inner(stateMobileOpen);
+      return stateMobileOpen;
+    };
+    const toggle = () => {
+      stateMobileMenuOpen = _updateHamburgerMenu(!stateMobileMenuOpen);
+    };
+    const close = () => {
+      stateMobileMenuOpen = false;
+      _updateHamburgerMenu(false);
+    };
+
+    return { toggle: toggle, close: close };
+  })();
+
+  document.addEventListener("DOMContentLoaded", (_event) => {
+    __c2dev_navbar_back = document.getElementById(
+      "--scrphotography-navbar-back"
+    )!!;
+    __c2dev_navbar_hamburger = document.getElementById(
+      "--scrphotography-navbar-hamburger"
+    )!!;
+    __c2dev_navbar_mobile = document.getElementById(
+      "--scrphotography-navbar-mobile"
+    )!!;
+
+    __c2dev_navbar_hamburger.addEventListener("click", hamburgerMenu.toggle);
+    __c2dev_navbar_back.addEventListener("click", hamburgerMenu.close);
+  });
+</script>

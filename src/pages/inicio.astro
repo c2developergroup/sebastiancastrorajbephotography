@@ -1,0 +1,49 @@
+---
+import "../css/main.css";
+import MainPage from "../components/MainPage.astro";
+import { MarqueeComponent } from "../components/MarqueeCustomers";
+import NavHeader from "../components/NavHeader.astro";
+---
+
+<MainPage>
+  <NavHeader invisible={true} />
+  <section id="inicio" class="overflow-hidden relative">
+    <img
+      src="corollacross.jpg"
+      class="absolute top-1/2 left-1/2 w-full h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-[-1]"
+    />
+    <div class="flex w-full gap-10 justify-between p-28">
+      <div class="w-1/2 text-white border border-white p-10 rounded-3xl">
+        <h2 class="text-4xl poppins-semibold mb-5">Sobre mí</h2>
+        <p class="text-xl">
+          Fotógrafo y videógrafo profesional con experiencia en marketing y
+          producción de contenido para redes sociales de grandes marcas en el
+          territorio nacional.
+        </p>
+      </div>
+      <img src="sebas-fotografo.JPG" class="w-1/3" />
+    </div>
+  </section>
+  <div class="w-full py-10"></div>
+  <section>
+    <video controls src="/corollacross.mp4" class=""></video>
+  </section>
+  <section
+    class="m-auto flex gap-5 justify-evenly flex-wrap items-center my-10"
+  >
+    <MarqueeComponent
+      logosTop={[
+        {
+          src: "/toyota-logo.svg",
+          class:
+            "w-54 h-24 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/hps-logo-banner.svg",
+          class:
+            "w-54 h-24 cursor-pointer hover:scale-110 transition duration-300",
+        },
+      ]}
+    />
+  </section>
+</MainPage>
