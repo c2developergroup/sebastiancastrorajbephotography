@@ -7,26 +7,27 @@ import NavHeader from "../components/NavHeader.astro";
 
 <MainPage>
   <NavHeader invisible={true} />
-  <section id="inicio" class="overflow-hidden relative">
-    <img
+  <section id="inicio" class="relative">
+    <!-- <img
       src="corollacross.jpg"
       class="absolute top-1/2 left-1/2 w-full h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-[-1]"
-    />
-    <div class="flex w-full gap-10 justify-between p-28">
-      <div class="w-1/2 text-white border border-white p-10 rounded-3xl">
-        <h2 class="text-4xl poppins-semibold mb-5">Sobre mí</h2>
+    /> -->
+    <div class="flex w-full gap-10 justify-between pb-28 pt-10 px-20">
+      <div class="w-1/2 p-10 rounded-3xl">
+        <h2 class="text-3xl poppins-semibold mb-5">Mi nombre es...</h2>
+        <h2 class="text-7xl poppins-semibold mb-5">Sebastián Castro Rajbe</h2>
+        <h2 class="text-4xl text-orange-500 poppins-semibold mb-5">Fotógrafo | Videógrafo</h2>
         <p class="text-xl">
-          Fotógrafo y videógrafo profesional con experiencia en marketing y
+          Con experiencia en marketing y
           producción de contenido para redes sociales de grandes marcas en el
           territorio nacional.
         </p>
       </div>
-      <img src="sebas-fotografo.JPG" class="w-1/3" />
+      <img src="sebas-fotografo.png" class="w-5/12" />
     </div>
   </section>
-  <div class="w-full py-10"></div>
-  <section>
-    <video controls src="/corollacross.mp4" class=""></video>
+  <section class="p-20">
+    <video controls muted autoplay src="/corollacross.mp4" class="rounded-3xl"></video>
   </section>
   <section
     class="m-auto flex gap-5 justify-evenly flex-wrap items-center my-10"
@@ -34,14 +35,49 @@ import NavHeader from "../components/NavHeader.astro";
     <MarqueeComponent
       logosTop={[
         {
-          src: "/toyota-logo.svg",
+          src: "/toyota-banner-logo-black.svg",
           class:
-            "w-54 h-24 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/hps-logo-banner.svg",
+          src: "/zusset-banner-logo-black.svg",
           class:
-            "w-54 h-24 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/thegrip-banner-logo-black.svg",
+          class:
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/hps-banner-logo-black.svg",
+          class:
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/rho-banner-logo-black.svg",
+          class:
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/melao-banner-logo-black.svg",
+          class:
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/iberia-banner-logo-black.svg",
+          class:
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/0calorias-banner-logo-black.svg",
+          class:
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/papelon-banner-logo-black.png",
+          class:
+            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
         },
       ]}
     />
