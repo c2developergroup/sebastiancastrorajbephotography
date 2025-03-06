@@ -2,32 +2,41 @@
 import "../css/main.css";
 import MainPage from "../components/MainPage.astro";
 import { MarqueeComponent } from "../components/MarqueeCustomers";
-import NavHeader from "../components/NavHeader.astro";
+import PhotosCarousel from "../components/PhotosCarousel.astro";
+// import NavHeader from "../components/NavHeader.astro";
 ---
 
 <MainPage>
-  <NavHeader invisible={true} />
+  <!-- <NavHeader invisible={true} /> -->
   <section id="inicio" class="relative">
-    <!-- <img
-      src="corollacross.jpg"
-      class="absolute top-1/2 left-1/2 w-full h-full object-cover transform -translate-x-1/2 -translate-y-1/2 z-[-1]"
-    /> -->
-    <div class="flex w-full gap-10 justify-between pb-28 pt-10 px-20">
-      <div class="w-1/2 p-10 rounded-3xl">
-        <h2 class="text-3xl poppins-semibold mb-5">Mi nombre es...</h2>
-        <h2 class="text-7xl poppins-semibold mb-5">Sebastián Castro Rajbe</h2>
-        <h2 class="text-4xl text-orange-500 poppins-semibold mb-5">Fotógrafo | Videógrafo</h2>
-        <p class="text-xl">
+    <img
+      src="sebas-fotografo-banner.jpg"
+      class="absolute left-1/2 w-full transform -translate-x-1/2 z-[-1]"
+    />
+    <div class="flex w-full gap-10 justify-right pb-28 pt-10 px-20">
+      <div class="w-1/2 p-10 rounded-3xl text-right">
+        <!-- <h2 class="text-3xl poppins-semibold mb-5">Mi nombre es...</h2> -->
+        
+        <!-- <p class="text-xl">
           Con experiencia en marketing y
           producción de contenido para redes sociales de grandes marcas en el
           territorio nacional.
-        </p>
+        </p> -->
       </div>
-      <img src="sebas-fotografo.png" class="w-5/12" />
     </div>
+  </section>
+  <section class="text-center mt-[570px]">
+    <h2 class="text-7xl poppins-semibold mb-5">Sebastián Castro Rajbe</h2>
+        <h2 class="text-4xl poppins-semibold mb-5">Fotografía | Video</h2>
   </section>
   <section class="p-20">
     <video controls muted autoplay src="/corollacross.mp4" class="rounded-3xl"></video>
+  </section>
+  <section>
+
+  </section>
+  <section>
+    <PhotosCarousel />
   </section>
   <section
     class="m-auto flex gap-5 justify-evenly flex-wrap items-center my-10"

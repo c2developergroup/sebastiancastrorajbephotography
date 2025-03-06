@@ -1,0 +1,147 @@
+---
+import "../css/slick-review.css";
+---
+
+<photos-carousel
+  class="splide flex justify-center relative max-w-[100%] w-[100%]"
+>
+  <div class="splide__track">
+    <div class="splide__list">
+      <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
+        <img
+          src="/lazyload-project.svg"
+          data-splide-lazy="/IMG_9545.jpg"
+          class="w-full md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
+        <img
+          src="/lazyload-project.svg"
+          data-splide-lazy="/IMG_0233.jpg"
+          class="w-full md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
+        <img
+          src="/lazyload-project.svg"
+          data-splide-lazy="/IMG_0178.jpg"
+          class="w-full md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500"
+          alt="Slide 3"
+        />
+      </div>
+    </div>
+  </div>
+</photos-carousel>
+<script>
+  import { Splide, type Options as SplideOptions } from "@splidejs/splide";
+  import { Intersection } from "@splidejs/splide-extension-intersection";
+
+  const options: SplideOptions = {
+    type: "loop",
+    autoplay: "pause",
+    interval: 4000,
+    pauseOnHover: true,
+    lazyLoad: "nearby",
+    preloadPages: 1,
+    updateOnMove: true,
+    arrows: false,
+    padding: "33.5%",
+    intersection: {
+      inView: {
+        autoplay: true,
+      },
+      outView: {
+        autoplay: false,
+      },
+    },
+    breakpoints: {
+      2100: {
+        // 4xl
+        padding: "31.5%",
+      },
+      1800: {
+        // 3xl
+        padding: "29.5%",
+      },
+      1536: {
+        // 2xl
+        padding: "27.5%",
+      },
+      1280: {
+        // xl
+        padding: "25%",
+      },
+      1024: {
+        // lg
+        padding: "20%",
+      },
+      768: {
+        // md
+        padding: "10%",
+      },
+      640: {
+        // sm
+        padding: "10px",
+      },
+    },
+  };
+
+  class PhotosCarousel extends HTMLElement {
+    splide: Splide | null = null;
+
+    constructor() {
+      super();
+    }
+
+    handleClick(ev: MouseEvent) {
+      let target = ev.target;
+
+      for (let i = 0; target != null && i < 5; i++) {
+        if (target instanceof HTMLElement) {
+          if (target.classList.contains("splide__slide")) {
+            console.debug(`target parent #${i} is slide`, target);
+            if (target.classList.contains("is-prev")) {
+              ev.preventDefault();
+              this.handlePrev();
+            } else if (target.classList.contains("is-next")) {
+              ev.preventDefault();
+              this.handleNext();
+            } else {
+              console.debug("slide not is-prev or is-next, ignoring...");
+            }
+            return;
+          } else {
+            target = target.parentElement;
+          }
+        } else {
+          console.debug("target !instanceof HTMLElement, aborting...", target);
+          return;
+        }
+      }
+    }
+
+    handlePrev() {
+      console.debug("got to prev slide");
+      this.splide?.go("<");
+    }
+
+    handleNext() {
+      console.debug("go to next slide");
+      this.splide?.go(">");
+    }
+
+    connectedCallback() {
+      this.splide = new Splide(this, options);
+      this.splide.mount({ Intersection });
+      this.addEventListener("click", this.handleClick);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener("click", this.handleClick);
+      this.splide?.destroy();
+    }
+  }
+  window.customElements.define("photos-carousel", PhotosCarousel);
+</script>

@@ -1,12 +1,12 @@
 ---
-import NavBar from "../components/NavBar.astro";
+// import NavBar from "../components/NavBar.astro";
 
 import "../css/main.css";
 import "@splidejs/splide/css";
 
-const currentPath = Astro.url.pathname;
-const hideNavbarOn = ["/"]; // Agrega aquí todas las rutas donde no quieres mostrar el navbar
-const showNavbar = !hideNavbarOn.includes(currentPath);
+// const currentPath = Astro.url.pathname;
+// const hideNavbarOn = ["/"]; // Agrega aquí todas las rutas donde no quieres mostrar el navbar
+// const showNavbar = !hideNavbarOn.includes(currentPath);
 ---
 
 <html lang="es" class="light">
@@ -24,7 +24,7 @@ const showNavbar = !hideNavbarOn.includes(currentPath);
   </head>
   <body class="bg-white overflow-x-clip">
     <div id="root">
-      {showNavbar && <NavBar />}
+      <!-- {showNavbar && <NavBar />} -->
       <div id="content">
         <slot />
       </div>
