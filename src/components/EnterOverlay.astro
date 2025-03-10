@@ -1,110 +1,154 @@
 <div
-  id="--enter-overlay-items"
-  class="navbar-home block visible text-gray-900 bg-white m-0 fixed w-60 h-screen top-0 pt-7 ps-4 pe-7 z-30 -left-60 translate-x-0 transition-transform duration-300"
+  class="visible fixed w-full h-screen z-20 bg-[rgba(0,0,0,0.8)] hidden opacity-0 transition-[opacity] duration-300"
+  id="--enter-overlay-bg"
 >
-  <!-- class+="lg:collapse lg:hidden lg:m-auto lg:static lg:w-auto lg:h-auto lg:top-auto lg:p-0 lg:z-auto lg:right-auto lg:translate-x-0" -->
-  <ul class="flex items-start mt-5 px-2 flex-col">
-    <li class="my-4"></li>
-    <li class="my-2.5">
+  <div
+  id="--enter-overlay-items"
+  class="navbar-home block visible text-white m-0 fixed w-screen h-screen z-30"
+  >
+  <ul class="flex flex-col items-center justify-center h-screen px-2">
+    {/* Inicio */}
+    <li class="my-1">
       <a
-        href="/exponencia-tu-proyecto"
-        class="text-xl font-bold  hover:text-red-500 hover:transition-all duration-300 m-0"
+        href="/inicio"
+        class="text-xl poppins-bold uppercase hover:text-gray-300 hover:transition-all duration-300 m-0"
       >
         <div class="flex items-center">
           <!-- <span class="pe-3"><IoSearchOutline /></span> -->
-          <span>Buscar</span>
+          <span>Inicio</span>
         </div>
       </a>
     </li>
-    <li class="my-2.5">
+
+    {/* Marcas */}
+    <li class="my-3"></li>
+    <li class="my-1">
       <a
-        href="/exponencia-tu-proyecto"
-        class="text-xl font-bold  hover:text-red-500 hover:transition-all duration-300 m-0"
+        href="/toyota"
+        class="text-xl poppins-bold uppercase hover:text-gray-300 hover:transition-all duration-300 m-0"
       >
         <div class="flex items-center">
-          <!-- <span class="pe-3"><IoBagOutline /></span> -->
-          <span>Bolsa de compra</span>
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Toyota</span>
         </div>
       </a>
     </li>
-    <li class="my-2.5">
+
+    {/* Top */}
+    <li class="my-3"></li>
+    <li class="my-1">
       <a
-        href="/exponencia-tu-proyecto"
-        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+        href="/top/videos"
+        class="text-xl poppins-bold uppercase hover:text-gray-300 hover:transition-all duration-300 m-0"
       >
         <div class="flex items-center">
-          <!-- <span class="pe-3"><PiUserCircle /></span> -->
-          <span>Perfil</span>
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Top Vídeos</span>
         </div>
       </a>
     </li>
-    <li class="my-2.5">
+    <li class="my-1">
       <a
-        href="/exponencia-tu-proyecto"
-        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+        href="/top/fotos"
+        class="text-xl poppins-bold uppercase hover:text-gray-300 hover:transition-all duration-300 m-0"
       >
         <div class="flex items-center">
-          <!-- <span class="pe-3"><IoIosHeartEmpty /></span> -->
-          <span>Favoritos</span>
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Top Fotos</span>
+        </div>
+      </a>
+    </li>
+
+    {/* Yo */}
+    <li class="my-3"></li>
+    <li class="my-1">
+      <a
+        href="/acerca"
+        class="text-xl poppins-bold uppercase hover:text-gray-300 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Sobre mí</span>
+        </div>
+      </a>
+    </li>
+    <li class="my-1">
+      <a
+        href="/contacto"
+        class="text-xl poppins-bold uppercase hover:text-gray-300 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Contacto</span>
         </div>
       </a>
     </li>
   </ul>
+  </div>
 </div>
-<div
-  class="visible fixed top-0 left-0 w-full h-screen z-20 bg-[rgba(0,0,0,0.5)] hidden"
-  id="--enter-overlay-bg"
-></div>
 <script>
   let stateMobileMenuOpen: boolean = false;
 
-  let __enter_overlay_bg!: HTMLElement;
+  let __enter_overlay_container!: HTMLElement;
   // let __c2dev_navbar_hamburger!: HTMLElement;
-  let __enter_overlay_items!: HTMLElement;
+  // let __enter_overlay_items!: HTMLElement;
 
   const enterMenu = (() => {
-    const _updateHamburgerMenu = (stateMobileOpen: boolean) => {
+    const _updateEnterMenu = (stateMobileOpen: boolean) => {
       const __inner = (isOpen: boolean) => {
-        const backVis = (isOpen: boolean) => {
+        const bgVis = (isOpen: boolean) => {
           return isOpen ? "block" : "hidden";
         };
-        const navVis = (isOpen: boolean) => {
-          return isOpen ? "translate-x-60" : "translate-x-0";
+        const itemVis = (isOpen: boolean) => {
+          return isOpen ? "opacity-100" : "opacity-0";
+        };
+        const onNext = (isOpen: boolean, f: () => void) => {
+          if (isOpen) {
+            window.requestAnimationFrame(f);
+          } else {
+            window.setTimeout(f, 310);
+          }
         };
 
-        __enter_overlay_bg.classList.replace(
-          backVis(!isOpen),
-          backVis(isOpen)
+        const classReplace1 = isOpen ? bgVis : itemVis;
+        const classReplace2 = isOpen ? itemVis : bgVis;
+        
+        __enter_overlay_container.classList.replace(
+          classReplace1(!isOpen),
+          classReplace1(isOpen)
         );
-        __enter_overlay_items.classList.replace(
-          navVis(!isOpen),
-          navVis(isOpen)
-        );
+        onNext(isOpen, () => {
+          console.log("aaaaa");
+          __enter_overlay_container.classList.replace(
+            classReplace2(!isOpen),
+            classReplace2(isOpen)
+          );
+        });
       };
 
       __inner(stateMobileOpen);
       return stateMobileOpen;
     };
     const toggle = () => {
-      stateMobileMenuOpen = _updateHamburgerMenu(!stateMobileMenuOpen);
+      stateMobileMenuOpen = _updateEnterMenu(!stateMobileMenuOpen);
     };
     const open = () => {
       stateMobileMenuOpen = true;
-      _updateHamburgerMenu(true);
+      _updateEnterMenu(true);
     };
     const close = () => {
       stateMobileMenuOpen = false;
-      _updateHamburgerMenu(false);
+      _updateEnterMenu(false);
     };
 
     return { toggle: toggle, open: open, close: close };
   })();
 
   document.addEventListener("DOMContentLoaded", (_event) => {
-    __enter_overlay_bg = document.getElementById("--enter-overlay-bg")!!;
-    __enter_overlay_items = document.getElementById("--enter-overlay-items")!!;
+    __enter_overlay_container = document.getElementById("--enter-overlay-bg")!!;
+    // __enter_overlay_items = document.getElementById("--enter-overlay-items")!!;
 
-    __enter_overlay_bg.addEventListener("click", enterMenu.close);
+    __enter_overlay_container.addEventListener("click", enterMenu.close);
     document.querySelectorAll("[data-enter-menu-action='open']")!!.forEach(element => {
       element.addEventListener("click", enterMenu.open);
     });
