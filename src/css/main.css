@@ -1,3 +1,7 @@
+[data-js-display] {
+  display: none;
+}
+
 body {
   font-family: "Poppins", serif;
   font-weight: 400;

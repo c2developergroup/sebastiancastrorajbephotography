@@ -1,9 +1,11 @@
 ---
 // import { MarqueeComponent } from "../components/MarqueeCustomers";
 import MainPage from "../components/MainPage.astro";
+import EnterOverlay from "../components/EnterOverlay.astro";
 ---
 
 <MainPage>
+  <EnterOverlay />
   <section id="inicio" class="relative overflow-hidden w-full h-screen">
     <video
       src="/corollacross.mp4"
@@ -14,11 +16,20 @@ import MainPage from "../components/MainPage.astro";
     ></video>
     <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-[-1]">
     </div>
-    <a href="/inicio">
-      <img
-        src="/sebastiancastrorajbephotography-white.svg"
-        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 sm:w-1/2 md:w-1/3 cursor-pointer hover:scale-110 transition duration-300"
-      />
-    </a>
+    <img
+      src="/sebastiancastrorajbephotography-white.svg"
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 sm:w-1/2 md:w-1/3 cursor-pointer hover:scale-110 transition duration-300"
+      data-enter-menu-action="open"
+      data-js-display="block"
+    />
+    <noscript>
+      <a href="/inicio">
+        <img
+          src="/sebastiancastrorajbephotography-white.svg"
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 sm:w-1/2 md:w-1/3 cursor-pointer hover:scale-110 transition duration-300"
+          data-enter-menu-action="open"
+        />
+      </a>
+    </noscript>
   </section>
 </MainPage>
