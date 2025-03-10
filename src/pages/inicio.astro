@@ -11,30 +11,42 @@ import PhotosCarousel from "../components/PhotosCarousel.astro";
   <section id="inicio" class="relative">
     <img
       src="sebas-fotografo-banner.jpg"
-      class="absolute left-1/2 w-full transform -translate-x-1/2 z-[-1]"
+      class="w-screen h-screen object-cover object-[100%,0%] -z-10 hidden sm:block"
     />
-    <div class="flex w-full gap-10 justify-right pb-28 pt-10 px-20">
+    <img
+      src="sebas-fotografo-banner-vertical.jpg"
+      class="w-screen h-screen object-cover object-[100%,100%] -z-10 sm:hidden"
+    />
+    <!-- <div class="flex w-full gap-10 justify-right pb-28 pt-10 px-20">
       <div class="w-1/2 p-10 rounded-3xl text-right">
-        <!-- <h2 class="text-3xl poppins-semibold mb-5">Mi nombre es...</h2> -->
+        <h2 class="text-3xl poppins-semibold mb-5">Mi nombre es...</h2>
         
-        <!-- <p class="text-xl">
+        <p class="text-xl">
           Con experiencia en marketing y
           producción de contenido para redes sociales de grandes marcas en el
           territorio nacional.
-        </p> -->
+        </p>
       </div>
-    </div>
+    </div> -->
   </section>
-  <section class="text-center mt-[570px]">
-    <h2 class="text-7xl poppins-semibold mb-5">Sebastián Castro Rajbe</h2>
-        <h2 class="text-4xl poppins-semibold mb-5">Fotografía | Video</h2>
+  <section class="text-center mt-10 sm:mt-[570px]">
+    <h2 class="text-5xl sm:text-7xl poppins-semibold mb-5">
+      Sebastián Castro Rajbe
+    </h2>
+    <h2 class="text-3xl sm:text-4xl poppins-semibold mb-5">
+      Fotografía | Video
+    </h2>
+    <p class="text-md sm:text-2xl">
+      <span class="text-xl"><b>6 años</b></span><br>de experiencia y grandes resultados
+    </p>
   </section>
-  <section class="p-20">
-    <video controls muted autoplay src="/corollacross.mp4" class="rounded-3xl"></video>
+  <section class="p-10 pt-15 sm:p-20">
+    <video controls muted autoplay src="/corollacross.mp4" class="rounded-3xl hidden sm:block"
+    ></video>
+    <video controls muted autoplay src="/corollacrossvertical.mp4" class="rounded-3xl sm:hidden"
+    ></video>
   </section>
-  <section>
-
-  </section>
+  <section></section>
   <section>
     <PhotosCarousel />
   </section>
@@ -46,49 +58,56 @@ import PhotosCarousel from "../components/PhotosCarousel.astro";
         {
           src: "/toyota-banner-logo-black.svg",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/zusset-banner-logo-black.svg",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/thegrip-banner-logo-black.svg",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/hps-banner-logo-black.svg",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/rho-banner-logo-black.svg",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/melao-banner-logo-black.svg",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/iberia-banner-logo-black.svg",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/0calorias-banner-logo-black.svg",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/papelon-banner-logo-black.png",
           class:
-            "w-54 h-24 px-7 cursor-pointer hover:scale-110 transition duration-300",
+            "w-54 h-24 px-7 py-2 cursor-pointer hover:scale-110 transition duration-300",
         },
       ]}
     />
+  </section>
+  <section class="py-20">
+    <div class="flex justify-center text-3xl font-bold">
+      <a href="/" class="">
+        <div class="hover:scale-110 transition duration-300">ENTER</div>
+      </a>
+    </div>
   </section>
 </MainPage>
