@@ -1,0 +1,81 @@
+---
+// Importa PhotoSwipe y su CSS
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
+
+// Define las imágenes del carrusel
+const images = [
+  { src: '/IMG_9545.jpg', w: 1200, h: 800, title: 'Image 1' },
+  { src: '/IMG_0233.jpg', w: 1200, h: 800, title: 'Image 2' },
+  { src: '/IMG_0178.jpg', w: 1200, h: 800, title: 'Image 3' },
+  { src: '/IMG_9736.jpg', w: 800, h: 1200, title: 'Image 4' }
+];
+
+import { onMount } from 'solid-js';
+
+onMount(() => {
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '.photoswipe-gallery',
+    children: 'a',
+    pswpModule: () => import('photoswipe'),
+    showHideOpacity: true,
+    closeOnVerticalDrag: false,
+    clickToCloseNonZoomable: false,
+    arrowPrev: true,
+    arrowNext: true,
+    close: true,
+    zoom: true,
+    counter: true,
+    bgOpacity: 0.8,
+    loop: true,
+    pinchToClose: false,
+    escKey: true,
+    arrowKeys: true
+  });
+  lightbox.init();
+});
+---
+
+<div class="photoswipe-gallery grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  {images.map((image) => (
+    <a href={image.src} data-pswp-width={image.w} data-pswp-height={image.h} data-cropped="true">
+      <img src={image.src} alt={image.title} class="carousel-image w-full h-80 object-cover md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500" />
+    </a>
+  ))}
+</div>
+
+<!-- Controles de PhotoSwipe -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="pswp__bg"></div>
+  <div class="pswp__scroll-wrap">
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <div class="pswp__counter"></div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--share" title="Share"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
+      </div>
+    </div>
+  </div>
+</div>

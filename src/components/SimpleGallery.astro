@@ -1,0 +1,55 @@
+---
+---
+
+<div id="app">
+  <div class="pswp-gallery grid grid-cols-3 p-20 gap-10" id="my-gallery">
+    <a
+      href="/IMG_0233.jpg"
+      data-pswp-width="1200"
+      data-pswp-height="800"
+      target="_blank"
+      class="flex items-center justify-center"
+    >
+      <img
+        src="/IMG_0233.jpg"
+        alt=""
+      />
+    </a>
+    <a
+      href="/IMG_0178.jpg"
+      data-pswp-width="1200"
+      data-pswp-height="800"
+      target="_blank"
+      class="flex items-center justify-center"
+    >
+      <img
+        src="/IMG_0178.jpg"
+        alt=""
+      />
+    </a>
+    <a
+      href="/IMG_9545.jpg"
+      data-pswp-width="2500"
+      data-pswp-height="1666"
+      target="_blank"
+      class="flex items-center justify-center"
+    >
+      <img
+        src="/IMG_9545.jpg"
+        alt=""
+      />
+    </a>
+  </div>
+</div>
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#my-gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+  });
+
+  lightbox.init();
+</script>

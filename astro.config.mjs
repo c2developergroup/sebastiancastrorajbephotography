@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import solid from "@astrojs/solid-js";
 import tailwind from "@astrojs/tailwind";
 
 import react from "@astrojs/react";
@@ -11,5 +12,6 @@ export default defineConfig({
     react({
       experimentalReactChildren: true,
     }),
+    [solid()],
   ],
 });

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/c2developergroup/c2developergroup.github.io#readme",
   "dependencies": {
     "@astrojs/react": "^3.0.8",
+    "@astrojs/solid-js": "^5.0.5",
     "@astrojs/tailwind": "^5.0.4",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
@@ -26,6 +27,7 @@
     "@types/react-dom": "^18.2.18",
     "astro": "^4.0.7",
     "framer-motion": "^10.18.0",
+    "photoswipe": "^5.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
