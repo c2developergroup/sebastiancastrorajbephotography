@@ -1,9 +1,9 @@
 ---
-const images = [
-  { src: '/IMG_0233.jpg', w: 5184, h: 3456 },
-  { src: '/IMG_0178.jpg', w: 5179, h: 3456 },
-  { src: '/IMG_9545.jpg', w: 5184, h: 3456 },
-];
+interface Props {
+  images: { src: string; w: number; h: number }[];
+}
+
+const { images } = Astro.props;
 ---
 
 <div id="app">
