@@ -2,9 +2,14 @@
 import "../css/main.css";
 import MainPage from "../components/MainPage.astro";
 import SimpleGallery from "../components/SimpleGallery.astro";
+import TopRightButton from "../components/TopRightButton.astro";
+
+import { RxHamburgerMenu } from "react-icons/rx/index";
 ---
 
 <MainPage>
+  <TopRightButton ReactIcon={RxHamburgerMenu} />
+
   <section id="inicio" class="relative">
     <img
       src="toyota-landing-page.jpg"

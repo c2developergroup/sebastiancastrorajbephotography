@@ -1,0 +1,17 @@
+---
+import type { IconType } from 'react-icons';
+
+interface Props {
+  ReactIcon: IconType;
+  color?: string;
+}
+
+const { ReactIcon, color } = Astro.props;
+
+const riStyle = (color != null) ? { color: color } : { color: "white" };
+
+---
+
+<div class="absolute top-0 right-0 p-4 lg:p-8 w-auto h-auto z-40 cursor-pointer">
+  <ReactIcon className="mix-blend-difference text-2xl lg:text-4xl hover:scale-110 transition duration-300" style={riStyle} />
+</div>
