@@ -1,7 +1,15 @@
+---
+import { IoMdClose } from "react-icons/io/index"
+---
+
 <div
   class="visible fixed w-full h-screen z-20 bg-[rgba(0,0,0,0.8)] hidden opacity-0 transition-[opacity] duration-300"
   id="--enter-overlay-bg"
 >
+  <div class="absolute top-8 right-8 lg:top-16 lg:right-16 w-auto h-auto z-40 cursor-pointer">
+    {/* bg-black opacity-50 */}
+    <IoMdClose className="text-white text-3xl lg:text-6xl hover:scale-110 transition duration-300 " />
+  </div>
   <div
   id="--enter-overlay-items"
   class="navbar-home block visible text-white m-0 fixed w-screen h-screen z-30"
@@ -123,8 +131,7 @@
   let stateMobileMenuOpen: boolean = false;
 
   let __enter_overlay_container!: HTMLElement;
-  // let __c2dev_navbar_hamburger!: HTMLElement;
-  // let __enter_overlay_items!: HTMLElement;
+  let __enter_overlay_hide_on_open!: NodeListOf<HTMLElement>;
 
   const enterMenu = (() => {
     const _updateEnterMenu = (stateMobileOpen: boolean) => {
@@ -134,6 +141,9 @@
         };
         const itemVis = (isOpen: boolean) => {
           return isOpen ? "opacity-100" : "opacity-0";
+        };
+        const itemVisHoo = (isOpen: boolean) => {
+          return isOpen ? "opacity-0" :  "opacity-100";
         };
         const onNext = (isOpen: boolean, f: () => void) => {
           if (isOpen) {
@@ -150,8 +160,13 @@
           classReplace1(!isOpen),
           classReplace1(isOpen)
         );
+        __enter_overlay_hide_on_open.forEach((element) => {
+          element.classList.replace(
+            itemVisHoo(!isOpen),
+            itemVisHoo(isOpen)
+          );
+        });
         onNext(isOpen, () => {
-          console.log("aaaaa");
           __enter_overlay_container.classList.replace(
             classReplace2(!isOpen),
             classReplace2(isOpen)
@@ -188,5 +203,7 @@
     document.querySelectorAll("[data-enter-menu-action='toggle']")!!.forEach(element => {
       element.addEventListener("click", enterMenu.toggle);
     });
+
+    __enter_overlay_hide_on_open = document.querySelectorAll("[data-enter-onopen='hide']")!!;
   });
 </script>
