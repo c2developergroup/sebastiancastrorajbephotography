@@ -5,17 +5,21 @@ export interface MarqueeLogo {
   src: string;
   class: string;
   href?: string;
+  newWindow?: boolean;
 }
 
 export const MarqueeComponent = ({ logosTop }: { logosTop: MarqueeLogo[] }) => {
   const cardsTop = logosTop.map((item: MarqueeLogo, index: number) => {
     const logo = <img key={index} src={item.src} className={item.class} />;
     if (item.href !== undefined) {
-      return (
-        <a href={item.href} target="_blank">
-          {logo}
-        </a>
-      );
+      if (item.newWindow) {
+        return (
+          <a href={item.href} target="_blank" rel="noreferrer">
+            {logo}
+          </a>
+        );
+      }
+      return <a href={item.href}>{logo}</a>;
     }
     return logo;
   });

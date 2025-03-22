@@ -33,18 +33,36 @@ import PhotosCarousel from "../components/PhotosCarousel.astro";
     <h2 class="text-5xl sm:text-7xl poppins-semibold mb-5">
       Sebastián Castro Rajbe
     </h2>
-    <h2 class="text-3xl sm:text-4xl poppins-semibold mb-5">
-      Fotografía | Video
-    </h2>
+    <div class="text-3xl sm:text-4xl poppins-semibold mb-2 flex gap-2 justify-center">
+      <a href="/fotos">
+        <h2 class="hover:scale-110 transition duration-300 hover:poppins-extrabold">
+          Fotos
+        </h2>
+      </a>
+      | <a href="/videos">
+        <h2 class="hover:scale-110 transition duration-300 hover:bold">
+          Videos
+        </h2>
+      </a>
+    </div>
     <p class="text-md sm:text-2xl">
-      <span class="text-xl"><b>6 años</b></span><br>de experiencia y grandes resultados
+      <span class="text-xl sm:text-3xl"><b>6 años</b></span><br />De experiencia y grandes
+      resultados.
     </p>
   </section>
   <section class="p-10 pt-15 sm:p-20">
-    <video controls muted autoplay src="/corollacross.mp4" class="rounded-3xl hidden sm:block"
-    ></video>
-    <video controls muted autoplay src="/corollacrossvertical.mp4" class="rounded-3xl sm:hidden"
-    ></video>
+    <video
+      controls
+      muted
+      autoplay
+      src="/corollacross.mp4"
+      class="rounded-3xl hidden sm:block"></video>
+    <video
+      controls
+      muted
+      autoplay
+      src="/corollacrossvertical.mp4"
+      class="rounded-3xl sm:hidden"></video>
   </section>
   <section></section>
   <section>
@@ -59,11 +77,17 @@ import PhotosCarousel from "../components/PhotosCarousel.astro";
           src: "/toyota-banner-logo-black.svg",
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
+          href: "/toyota",
         },
         {
           src: "/cubitt-banner-logo-black.svg",
           class:
             "w-54 h-24 px-7 py-4 cursor-pointer hover:scale-110 transition duration-300",
+        },
+        {
+          src: "/hps-banner-logo-black.svg",
+          class:
+            "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
           src: "/zusset-banner-logo-black.svg",
@@ -72,11 +96,6 @@ import PhotosCarousel from "../components/PhotosCarousel.astro";
         },
         {
           src: "/thegrip-banner-logo-black.svg",
-          class:
-            "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
-        },
-        {
-          src: "/hps-banner-logo-black.svg",
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
