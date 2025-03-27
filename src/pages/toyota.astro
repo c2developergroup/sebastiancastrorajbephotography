@@ -1,5 +1,6 @@
 ---
 import "../css/main.css";
+import HamburgerMenu from "../components/HamburgerMenu.astro";
 import MainPage from "../components/MainPage.astro";
 import SimpleGallery from "../components/SimpleGallery.astro";
 import TopRightButton from "../components/TopRightButton.astro";
@@ -9,6 +10,7 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
 
 <MainPage>
   <TopRightButton ReactIcon={RxHamburgerMenu} />
+  <HamburgerMenu />
 
   <section id="inicio" class="relative">
     <img

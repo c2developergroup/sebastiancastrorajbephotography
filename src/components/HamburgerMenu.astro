@@ -1,5 +1,5 @@
 ---
-import NavHeader from "./NavHeader.astro";
+import { IoMdClose } from "react-icons/io/index"
 import { IoIosHeartEmpty } from "react-icons/io/index";
 import { IoBagOutline, IoSearchOutline } from "react-icons/io5/index";
 import { PiUserCircle } from "react-icons/pi/index";
@@ -8,12 +8,14 @@ import "../css/main.css";
 ---
 
 <div
-  id="--scrphotography-navbar-mobile"
-  class="navbar-home block visible text-gray-900 bg-white m-0 fixed w-60 h-screen top-0 pt-7 ps-4 pe-7 z-30 -left-60 translate-x-0 transition-transform duration-300"
+  id="--scrphotography-hamburger-menu"
+  class="navbar-home block visible text-gray-900 bg-white m-0 fixed w-60 h-screen top-0 pt-7 ps-4 pe-7 z-30 -right-60 translate-x-0 transition-transform duration-300"
 >
-  <!-- class+="lg:collapse lg:hidden lg:m-auto lg:static lg:w-auto lg:h-auto lg:top-auto lg:p-0 lg:z-auto lg:right-auto lg:translate-x-0" -->
-  <ul class="flex items-start mt-5 px-2 flex-col">
-    <li class="my-4"></li>
+  {/* class+="lg:collapse lg:hidden lg:m-auto lg:static lg:w-auto lg:h-auto lg:top-auto lg:p-0 lg:z-auto lg:right-auto lg:translate-x-0" */}
+  <div class="w-full h-auto z-20 cursor-pointer flex justify-end" data-hamburger-menu-action="toggle">
+    <IoMdClose className="text-2xl lg:text-4xl hover:scale-110 transition duration-300 text-black" style={{color: "black"}} />
+  </div>
+  <ul class="flex items-start mt-2 px-2 flex-col">
     <li class="my-2.5">
       <a
         href="/exponencia-tu-proyecto"
@@ -60,19 +62,18 @@ import "../css/main.css";
     </li>
   </ul>
 </div>
-<NavHeader />
+{/*<NavHeader />*/}
 <div
   class="visible fixed top-0 left-0 w-full h-screen z-20 bg-[rgba(0,0,0,0.5)] hidden"
-  id="--scrphotography-navbar-back"
+  id="--scrphotography-hamburger-back"
 >
-  <!-- class+="lg:collapse lg:static lg:top-auto lg:left-auto lg:w-auto lg:h-auto lg:z-auto" -->
+  {/* class+="lg:collapse lg:static lg:top-auto lg:left-auto lg:w-auto lg:h-auto lg:z-auto" --> */}
 </div>
 <script>
   let stateMobileMenuOpen: boolean = false;
 
-  let __c2dev_navbar_back!: HTMLElement;
-  let __c2dev_navbar_hamburger!: HTMLElement;
-  let __c2dev_navbar_mobile!: HTMLElement;
+  let __c2dev_hamburger_back!: HTMLElement;
+  let __c2dev_hamburger_menu!: HTMLElement;
 
   const hamburgerMenu = (() => {
     const _updateHamburgerMenu = (stateMobileOpen: boolean) => {
@@ -81,14 +82,14 @@ import "../css/main.css";
           return isOpen ? "block" : "hidden";
         };
         const navVis = (isOpen: boolean) => {
-          return isOpen ? "translate-x-60" : "translate-x-0";
+          return isOpen ? "-translate-x-60" : "translate-x-0";
         };
 
-        __c2dev_navbar_back.classList.replace(
+        __c2dev_hamburger_back.classList.replace(
           backVis(!isOpen),
           backVis(isOpen)
         );
-        __c2dev_navbar_mobile.classList.replace(
+        __c2dev_hamburger_menu.classList.replace(
           navVis(!isOpen),
           navVis(isOpen)
         );
@@ -104,22 +105,29 @@ import "../css/main.css";
       stateMobileMenuOpen = false;
       _updateHamburgerMenu(false);
     };
+    const open = () => {
+      stateMobileMenuOpen = true;
+      _updateHamburgerMenu(true);
+    };
 
-    return { toggle: toggle, close: close };
+    return { toggle: toggle, close: close, open: open };
   })();
 
   document.addEventListener("DOMContentLoaded", (_event) => {
-    __c2dev_navbar_back = document.getElementById(
-      "--scrphotography-navbar-back"
+    __c2dev_hamburger_back = document.getElementById(
+      "--scrphotography-hamburger-back"
     )!!;
-    __c2dev_navbar_hamburger = document.getElementById(
-      "--scrphotography-navbar-hamburger"
-    )!!;
-    __c2dev_navbar_mobile = document.getElementById(
-      "--scrphotography-navbar-mobile"
+    __c2dev_hamburger_menu = document.getElementById(
+      "--scrphotography-hamburger-menu"
     )!!;
 
-    __c2dev_navbar_hamburger.addEventListener("click", hamburgerMenu.toggle);
-    __c2dev_navbar_back.addEventListener("click", hamburgerMenu.close);
+    __c2dev_hamburger_back.addEventListener("click", hamburgerMenu.close);
+
+    document.querySelectorAll("[data-hamburger-menu-action='open']")!!.forEach(element => {
+      element.addEventListener("click", hamburgerMenu.open);
+    });
+    document.querySelectorAll("[data-hamburger-menu-action='toggle']")!!.forEach(element => {
+      element.addEventListener("click", hamburgerMenu.toggle);
+    });
   });
 </script>

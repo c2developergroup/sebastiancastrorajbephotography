@@ -1,5 +1,6 @@
 ---
 import "../css/main.css";
+import HamburgerMenu from "../components/HamburgerMenu.astro";
 import MainPage from "../components/MainPage.astro";
 import { MarqueeComponent } from "../components/MarqueeCustomers";
 import PhotosCarousel from "../components/PhotosCarousel.astro";
@@ -11,6 +12,7 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
 
 <MainPage>
   <TopRightButton ReactIcon={RxHamburgerMenu} color="black" />
+  <HamburgerMenu />
   <!-- <NavHeader invisible={true} /> -->
   <section id="inicio" class="relative">
     <img
