@@ -1,50 +1,73 @@
 ---
 import "../css/slick-review.css";
+
+const images = [
+  { src: "/IMG_9545.jpg", width: 5184, height: 3456 },
+  { src: "/IMG_0233.jpg", width: 5184, height: 3456 },
+  { src: "/IMG_0178.jpg", width: 5179, height: 3456 },
+];
 ---
 
 <photos-carousel
-  class="splide flex justify-center relative max-w-[100%] w-[100%]"
+  class="splide flex justify-center relative max-w-[100%] w-[100%]" data-pslb={JSON.stringify(images)}
 >
   <div class="splide__track">
-    <div class="splide__list">
-      <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
+    <div class="splide__list" id="splide-list-pslb">
+      {images.map((image, i) => (
+        <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
+          <img
+            src="/lazyload-project.svg"
+            data-splide-lazy={image.src}
+            class="w-full rounded"
+            alt={`Slide ${i+1}`}
+          />
+          {/* md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500 */}
+        </div>
+      ))}
+      {/* <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
         <img
           src="/lazyload-project.svg"
           data-splide-lazy="/IMG_9545.jpg"
-          class="w-full md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500"
-          alt="Slide 2"
+          class="w-full rounded"
+          alt="Slide 1"
         />
+        {/* md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500 * /}
       </div>
       <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
         <img
           src="/lazyload-project.svg"
           data-splide-lazy="/IMG_0233.jpg"
-          class="w-full md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500"
+          class="w-full rounded"
           alt="Slide 2"
         />
+        {/* md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500 * /}
       </div>
       <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
         <img
           src="/lazyload-project.svg"
           data-splide-lazy="/IMG_0178.jpg"
-          class="w-full md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500"
+          class="w-full rounded"
           alt="Slide 3"
         />
-      </div>
-      <div class="splide__slide flex justify-center px-10 pt-10 pb-16 cursor-pointer">
+        {/* md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500 * /}
+      </div> */}
+      {/* <div class="splide__slide flex justify-center px-10 pt-10 pb-16 cursor-pointer">
         <img
           src="/lazyload-project.svg"
           data-splide-lazy="/IMG_9736.jpg"
           class="w-[50%] m-auto md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500"
           alt="Slide 3"
         />
-      </div>
+      </div> */}
     </div>
   </div>
 </photos-carousel>
 <script>
   import { Splide, type Options as SplideOptions } from "@splidejs/splide";
   import { Intersection } from "@splidejs/splide-extension-intersection";
+
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
 
   const options: SplideOptions = {
     type: "loop",
@@ -98,6 +121,7 @@ import "../css/slick-review.css";
 
   class PhotosCarousel extends HTMLElement {
     splide: Splide | null = null;
+    lightbox: PhotoSwipeLightbox | null = null;
 
     constructor() {
       super();
@@ -117,7 +141,36 @@ import "../css/slick-review.css";
               ev.preventDefault();
               this.handleNext();
             } else {
-              console.debug("slide not is-prev or is-next, ignoring...");
+              console.debug("slide not is-prev or is-next, opening pslb...");
+
+              let intersect = true;
+              if (this.lightbox) {
+                this.lightbox.destroy();
+              }
+              this.lightbox = new PhotoSwipeLightbox({
+                dataSource: JSON.parse(this.dataset.pslb || "[]"),
+                pswpModule: () => import("photoswipe"),
+              });
+              this.lightbox.on('close', () => {
+                console.log("lightbox>close")
+                this.splide?.off('intersection:in');
+                this.splide?.off('intersection:out');
+                if (intersect) {
+                  this.splide?.Components.Autoplay.play();
+                }
+              });
+              this.lightbox.init();
+
+              this.splide?.Components.Autoplay.pause();
+              this.splide?.on('intersection:in', function (_entry) {
+                console.log("splide>intersection:in");
+                intersect = true;
+              });
+              this.splide?.on('intersection:out', function (_entry) {
+                console.log("splide>intersection:out");
+                intersect = false;
+              });
+              this.lightbox.loadAndOpen(this.splide?.index || 0);
             }
             return;
           } else {

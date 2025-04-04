@@ -11,18 +11,30 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
 ---
 
 <MainPage>
-  <TopRightButton ReactIcon={RxHamburgerMenu} color="black" />
+  <TopRightButton ReactIcon={RxHamburgerMenu} color="white" />
   <HamburgerMenu />
   <!-- <NavHeader invisible={true} /> -->
   <section id="inicio" class="relative">
     <img
-      src="sebas-fotografo-banner.jpg"
-      class="w-screen h-screen object-cover object-[100%,0%] -z-10 hidden sm:block"
+      src="landing-page-computadora-sinlogo.jpg"
+      class="absolute w-screen h-[115vh] object-cover object-[50%,80%] -z-10 hidden sm:block"
     />
     <img
-      src="sebas-fotografo-banner-vertical.jpg"
-      class="w-screen h-screen object-cover object-[100%,100%] -z-10 sm:hidden"
+      src="landing-page-sinlogo.jpg"
+      class="absolute w-screen h-[115vh] object-cover object-[50%,50%] -z-10 sm:hidden"
     />
+    <div class="h-[115vh] flex flex-col items-center justify-between">
+      <a href="/">
+        <img
+          src="sebastiancastrorajbephotography-white.svg"
+          class="w-64 mt-32 md:mt-24"
+          alt="Logo de la empresa"
+        />
+      </a>
+      <h2 class="text-5xl sm:text-7xl text-white poppins-semibold">
+        6 años de experiencia
+      </h2>
+    </div>
     <!-- <div class="flex w-full gap-10 justify-right pb-28 pt-10 px-20">
       <div class="w-1/2 p-10 rounded-3xl text-right">
         <h2 class="text-3xl poppins-semibold mb-5">Mi nombre es...</h2>
@@ -35,43 +47,29 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
       </div>
     </div> -->
   </section>
-  <section class="text-center mt-10 sm:mt-20">
-    <h2 class="text-5xl sm:text-7xl poppins-semibold mb-5">
-      Sebastián Castro Rajbe
+  <!-- <section class="text-center pb-10 bg-black">
+    <h2 class="text-5xl sm:text-7xl text-white poppins-semibold">
+      6 años de experiencia
     </h2>
-    <div class="text-3xl sm:text-4xl poppins-semibold mb-2 flex gap-2 justify-center">
-      <a href="/fotos">
-        <h2 class="hover:scale-110 transition duration-300 hover:poppins-extrabold">
-          Fotos
-        </h2>
-      </a>
-      | <a href="/videos">
-        <h2 class="hover:scale-110 transition duration-300 hover:bold">
-          Videos
-        </h2>
-      </a>
+  </section> -->
+  <section class="bg-[linear-gradient(148deg,black_55%,white_55%)]">
+    <div class="p-10 pt-15 sm:p-20">
+      <video
+        controls
+        muted
+        autoplay
+        src="/corollacross.mp4"
+        class="w-full rounded hidden sm:block"></video>
+        {/* rounded-3xl */}
+
+      <video
+        controls
+        muted
+        autoplay
+        src="/corollacrossvertical.mp4"
+        class="w-full rounded sm:hidden"></video>
+        {/* rounded-3xl */}
     </div>
-    <p class="text-md sm:text-2xl">
-      <span class="text-xl sm:text-3xl"><b>6 años</b></span><br />De experiencia y grandes
-      resultados.
-    </p>
-  </section>
-  <section class="p-10 pt-15 sm:p-20">
-    <video
-      controls
-      muted
-      autoplay
-      src="/corollacross.mp4"
-      class="rounded-3xl hidden sm:block"></video>
-    <video
-      controls
-      muted
-      autoplay
-      src="/corollacrossvertical.mp4"
-      class="rounded-3xl sm:hidden"></video>
-  </section>
-  <section></section>
-  <section>
     <PhotosCarousel />
   </section>
   <section
