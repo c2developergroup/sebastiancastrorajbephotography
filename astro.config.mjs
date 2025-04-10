@@ -14,4 +14,6 @@ export default defineConfig({
     }),
     [solid()],
   ],
+  site: 'https://c2developergroup.github.io',
+  base: '/sebastiancastrorajbephotography',
 });
