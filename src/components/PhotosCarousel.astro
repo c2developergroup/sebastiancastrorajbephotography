@@ -16,7 +16,7 @@ const images = [
       {images.map((image, i) => (
         <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
           <img
-            src="/lazyload-project.svg"
+            src={`${import.meta.env.BASE_URL}/lazyload-project.svg`}
             data-splide-lazy={image.src}
             class="w-full rounded"
             alt={`Slide ${i+1}`}
@@ -24,41 +24,6 @@ const images = [
           {/* md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500 */}
         </div>
       ))}
-      {/* <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
-        <img
-          src="/lazyload-project.svg"
-          data-splide-lazy="/IMG_9545.jpg"
-          class="w-full rounded"
-          alt="Slide 1"
-        />
-        {/* md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500 * /}
-      </div>
-      <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
-        <img
-          src="/lazyload-project.svg"
-          data-splide-lazy="/IMG_0233.jpg"
-          class="w-full rounded"
-          alt="Slide 2"
-        />
-        {/* md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500 * /}
-      </div>
-      <div class="splide__slide px-10 pt-10 pb-16 cursor-pointer">
-        <img
-          src="/lazyload-project.svg"
-          data-splide-lazy="/IMG_0178.jpg"
-          class="w-full rounded"
-          alt="Slide 3"
-        />
-        {/* md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500 * /}
-      </div> */}
-      {/* <div class="splide__slide flex justify-center px-10 pt-10 pb-16 cursor-pointer">
-        <img
-          src="/lazyload-project.svg"
-          data-splide-lazy="/IMG_9736.jpg"
-          class="w-[50%] m-auto md:rounded-[2rem] rounded-3xl shadow-[0_0_26px_0_rgba(0,0,0,0.25)] shadow-neutral-500 hover:shadow-neutral-700 dark:shadow-neutral-900 dark:hover:shadow-neutral-950 transition duration-500"
-          alt="Slide 3"
-        />
-      </div> */}
     </div>
   </div>
 </photos-carousel>
