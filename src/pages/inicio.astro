@@ -16,17 +16,17 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
   <!-- <NavHeader invisible={true} /> -->
   <section id="inicio" class="relative">
     <img
-      src="landing-page-computadora-sinlogo.jpg"
+      src={`${import.meta.env.BASE_URL}/landing-page-computadora-sinlogo.jpg`}
       class="absolute w-screen h-[115vh] object-cover object-[50%,80%] -z-10 hidden sm:block"
     />
     <img
-      src="landing-page-sinlogo.jpg"
+      src={`${import.meta.env.BASE_URL}/landing-page-sinlogo.jpg`}
       class="absolute w-screen h-[115vh] object-cover object-[50%,50%] -z-10 sm:hidden"
     />
     <div class="h-[115vh] flex flex-col items-center justify-between">
-      <a href="/">
+      <a href={`${import.meta.env.BASE_URL}/`}>
         <img
-          src="sebastiancastrorajbephotography-white.svg"
+          src={`${import.meta.env.BASE_URL}/sebastiancastrorajbephotography-white.svg`}
           class="w-64 mt-32 md:mt-24"
           alt="Logo de la empresa"
         />
@@ -58,7 +58,7 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
         controls
         muted
         autoplay
-        src="/corollacross.mp4"
+        src={`${import.meta.env.BASE_URL}/corollacross.mp4`}
         class="w-full rounded hidden sm:block"></video>
         {/* rounded-3xl */}
 
@@ -66,7 +66,7 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
         controls
         muted
         autoplay
-        src="/corollacrossvertical.mp4"
+        src={`${import.meta.env.BASE_URL}/corollacrossvertical.mp4`}
         class="w-full rounded sm:hidden"></video>
         {/* rounded-3xl */}
     </div>
@@ -78,53 +78,53 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
     <MarqueeComponent
       logosTop={[
         {
-          src: "/toyota-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/toyota-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
-          href: "/toyota",
+          href: `${import.meta.env.BASE_URL}/toyota`,
         },
         {
-          src: "/cubitt-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/cubitt-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-4 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/hps-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/hps-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/zusset-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/zusset-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/thegrip-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/thegrip-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/rho-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/rho-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/melao-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/melao-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/iberia-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/iberia-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/0calorias-banner-logo-black.svg",
+          src: `${import.meta.env.BASE_URL}/0calorias-banner-logo-black.svg`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
         {
-          src: "/papelon-banner-logo-black.png",
+          src: `${import.meta.env.BASE_URL}/papelon-banner-logo-black.png`,
           class:
             "w-54 h-24 px-7 py-3 cursor-pointer hover:scale-110 transition duration-300",
         },
