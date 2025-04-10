@@ -5,7 +5,6 @@ import MainPage from "../components/MainPage.astro";
 import { MarqueeComponent } from "../components/MarqueeCustomers";
 import PhotosCarousel from "../components/PhotosCarousel.astro";
 import TopRightButton from "../components/TopRightButton.astro";
-// import NavHeader from "../components/NavHeader.astro";
 
 import { RxHamburgerMenu } from "react-icons/rx/index";
 ---
@@ -13,7 +12,6 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
 <MainPage>
   <TopRightButton ReactIcon={RxHamburgerMenu} color="white" />
   <HamburgerMenu />
-  <!-- <NavHeader invisible={true} /> -->
   <section id="inicio" class="relative">
     <img
       src={`${import.meta.env.BASE_URL}/landing-page-computadora-sinlogo.jpg`}
