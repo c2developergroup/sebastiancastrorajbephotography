@@ -1,62 +1,133 @@
 ---
 import { IoMdClose } from "react-icons/io/index"
-import { IoIosHeartEmpty } from "react-icons/io/index";
-import { IoBagOutline, IoSearchOutline } from "react-icons/io5/index";
-import { PiUserCircle } from "react-icons/pi/index";
 
 import "../css/main.css";
+
+interface Props {
+  dark?: boolean;
+}
+
+let { dark } = Astro.props;
+const menuStyle = (dark) ? { backgroundColor: "#000", color: "rgb(245 245 245)" } : { backgroundColor: "#fff", color: "rgb(23 23 23)" };
+const closeStyle = (dark) ? { color: "#fff" } : { color: "#000" };
 ---
 
 <div
   id="--scrphotography-hamburger-menu"
-  class="navbar-home block visible text-gray-900 bg-white m-0 fixed w-60 h-screen top-0 pt-7 ps-4 pe-7 z-30 -right-60 translate-x-0 transition-transform duration-300"
+  class="navbar-home block visible m-0 fixed w-60 h-screen top-0 pt-7 ps-4 pe-7 z-30 -right-60 translate-x-0 transition-transform duration-300"
+  style={menuStyle}
 >
   {/* class+="lg:collapse lg:hidden lg:m-auto lg:static lg:w-auto lg:h-auto lg:top-auto lg:p-0 lg:z-auto lg:right-auto lg:translate-x-0" */}
   <div class="w-full h-auto z-20 cursor-pointer flex justify-end" data-hamburger-menu-action="toggle">
-    <IoMdClose className="text-2xl lg:text-4xl hover:scale-110 transition duration-300 text-black" style={{color: "black"}} />
+    <IoMdClose className="text-2xl lg:text-4xl hover:scale-110 transition duration-300" style={closeStyle} />
   </div>
-  <ul class="flex items-start mt-2 px-2 flex-col">
-    <li class="my-2.5">
+  <ul class="flex items-center mt-2 px-2 flex-col">
+    {/* Inicio */}
+    <li class="my-1">
       <a
-        href="/exponencia-tu-proyecto"
-        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+        href={`${import.meta.env.BASE_URL}/inicio`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
       >
         <div class="flex items-center">
-          <span class="pe-3"><IoSearchOutline /></span>
-          <span>Buscar</span>
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Inicio</span>
         </div>
       </a>
     </li>
-    <li class="my-2.5">
+
+    {/* Marcas */}
+    <li class="my-3"></li>
+    <li class="my-1">
       <a
-        href="/exponencia-tu-proyecto"
-        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+        href={`${import.meta.env.BASE_URL}/toyota`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
       >
         <div class="flex items-center">
-          <span class="pe-3"><IoBagOutline /></span>
-          <span>Bolsa de compra</span>
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Toyota</span>
         </div>
       </a>
     </li>
-    <li class="my-2.5">
+    <li class="my-1">
       <a
-        href="/exponencia-tu-proyecto"
-        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+        href={`${import.meta.env.BASE_URL}/cubitt`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
       >
         <div class="flex items-center">
-          <span class="pe-3"><PiUserCircle /></span>
-          <span>Perfil</span>
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Cubitt</span>
         </div>
       </a>
     </li>
-    <li class="my-2.5">
+    <li class="my-1">
       <a
-        href="/exponencia-tu-proyecto"
-        class="text-xl font-bold hover:text-red-500 hover:transition-all duration-300 m-0"
+        href={`${import.meta.env.BASE_URL}/hps`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
       >
         <div class="flex items-center">
-          <span class="pe-3"><IoIosHeartEmpty /></span>
-          <span>Favoritos</span>
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>HPS</span>
+        </div>
+      </a>
+    </li>
+    <li class="my-1">
+      <a
+        href={`${import.meta.env.BASE_URL}/zusset`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Zusset</span>
+        </div>
+      </a>
+    </li>
+
+    {/* Top */}
+    <li class="my-3"></li>
+    <li class="my-1">
+      <a
+        href={`${import.meta.env.BASE_URL}/top/videos`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Top Vídeos</span>
+        </div>
+      </a>
+    </li>
+    <li class="my-1">
+      <a
+        href={`${import.meta.env.BASE_URL}/top/fotos`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Top Fotos</span>
+        </div>
+      </a>
+    </li>
+
+    {/* Yo */}
+    <li class="my-3"></li>
+    <li class="my-1">
+      <a
+        href={`${import.meta.env.BASE_URL}/acerca`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Sobre mí</span>
+        </div>
+      </a>
+    </li>
+    <li class="my-1">
+      <a
+        href={`${import.meta.env.BASE_URL}/contacto`}
+        class="text-xl lg:text-2xl hover:text-gray-300 hover:transition-all duration-300 m-0"
+      >
+        <div class="flex items-center">
+          <!-- <span class="pe-3"><IoSearchOutline /></span> -->
+          <span>Contacto</span>
         </div>
       </a>
     </li>
