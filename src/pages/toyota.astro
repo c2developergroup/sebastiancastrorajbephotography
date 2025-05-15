@@ -3,6 +3,7 @@ import "../css/main.css";
 import HamburgerMenu from "../components/HamburgerMenu.astro";
 import MainPage from "../components/MainPage.astro";
 import SimpleGallery from "../components/SimpleGallery.astro";
+import SimpleVidGallery from "../components/SimpleVidGallery.astro";
 import TopRightButton from "../components/TopRightButton.astro";
 
 import { RxHamburgerMenu } from "react-icons/rx/index";
@@ -25,12 +26,50 @@ import { RxHamburgerMenu } from "react-icons/rx/index";
   <section>
     <img src={`${import.meta.env.BASE_URL}/agya-logo-black.png`} class="w-1/3 m-auto pb-8 pt-20" />
     <SimpleGallery images={[
-      { src: `${import.meta.env.BASE_URL}/IMG_0233.jpg`, w: 5184, h: 3456 },
-      { src: `${import.meta.env.BASE_URL}/IMG_0178.jpg`, w: 5179, h: 3456 },
-      { src: `${import.meta.env.BASE_URL}/IMG_9545.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0296.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0279.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0226.jpg`, w: 5179, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0341.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0290.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0330.jpg`, w: 5179, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0244.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0267.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0261.jpg`, w: 5179, h: 3456 },
+    ]} />
+    <SimpleVidGallery videos={[
+      { src: `${import.meta.env.BASE_URL}/VID_Lanzamiento-Toyota-Agya-2025.MP4`, w: 1080, h: 1920 },
+      { src: `${import.meta.env.BASE_URL}/VID_agya.MOV`, w: 2160, h: 3840 },
     ]} />
   </section>
   <section>
     <img src={`${import.meta.env.BASE_URL}/corolla-cross-logo-black.png`} class="w-1/3 m-auto pb-8 pt-20" />
+    <SimpleGallery images={[
+      { src: `${import.meta.env.BASE_URL}/IMG_0203.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0205.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0172.jpg`, w: 5179, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0206.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0159.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0168.jpg`, w: 5179, h: 3456 },
+    ]} />
+    <SimpleVidGallery videos={[
+      { src: `${import.meta.env.BASE_URL}/VID_4FB3D55D-0F54-4DDE-805C-EB54872BDD24.mp4`, w: 1080, h: 1920 },
+      { src: `${import.meta.env.BASE_URL}/VID_285B01CD-1933-4BDA-9320-968E7D63EBA3.mp4`, w: 1080, h: 1920 },
+      { src: `${import.meta.env.BASE_URL}/VID_FD4BF42B-9B64-4F91-913A-A8F33B50047B.mp4`, w: 1080, h: 1920 },
+    ]} />
+  </section>
+  <section>
+    <img src={`${import.meta.env.BASE_URL}/autofest-logo-black.svg`} class="w-1/3 m-auto pb-8 pt-20" />
+    <SimpleGallery images={[
+      { src: `${import.meta.env.BASE_URL}/IMG_0830.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0827.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0824.jpg`, w: 5179, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0835.jpg`, w: 5184, h: 3456 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0849.jpg`, w: 3456, h: 2306 },
+      { src: `${import.meta.env.BASE_URL}/IMG_0840.jpg`, w: 5179, h: 3456 },
+    ]} />
+    <SimpleVidGallery videos={[
+      { src: `${import.meta.env.BASE_URL}/VID_0BCA1249-4BF9-48C3-B5F6-B387E2096E90.mp4`, w: 1080, h: 1920 },
+      { src: `${import.meta.env.BASE_URL}/VID_F0F28B69-8A13-49DB-994B-41F1ACBE91AA.mp4`, w: 1080, h: 1920 },
+    ]} />
   </section>
 </MainPage>

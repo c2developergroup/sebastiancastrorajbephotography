@@ -6,8 +6,8 @@ interface Props {
 const { images } = Astro.props;
 ---
 
-<div id="app">
-  <div class="pswp-gallery grid grid-cols-3 p-20 gap-10" id="my-gallery">
+<div>
+  <div class="pswp-gallery grid grid-cols-3 p-20 gap-10">
     {images.map((image) => (
       <a
         href={image.src}
@@ -30,7 +30,7 @@ const { images } = Astro.props;
   import "photoswipe/style.css";
 
   const lightbox = new PhotoSwipeLightbox({
-    gallery: "#my-gallery",
+    gallery: ".pswp-gallery",
     children: "a",
     pswpModule: () => import("photoswipe"),
   });

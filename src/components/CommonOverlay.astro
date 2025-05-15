@@ -1,0 +1,39 @@
+---
+
+---
+<div id="c2dev-common-overlay" class="fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.8)] justify-center items-center z-[1000] transition-colors duration-300" style={{display: "none", opacity: "0"}}>
+  
+</div>
+<script>
+  declare global {
+    interface Window {
+      c2OverlayOpen: (element: HTMLElement) => void;
+      c2OverlayClose: () => void;
+    }
+  }
+
+  const c2OverlayOpen = (element: HTMLElement) => {
+    const overlay = document.getElementById("c2dev-common-overlay");
+    console.log("Overlay opened");
+    if (overlay) {
+      overlay.appendChild(element);
+      overlay.style.display = "block";
+      overlay.style.opacity = "1";
+    }
+  };
+  const c2OverlayClose = () => {
+    const overlay = document.getElementById("c2dev-common-overlay");
+    if (overlay) {
+      overlay.style.opacity = "0";
+      window.setTimeout(() => {
+        overlay.style.display = "none";
+        overlay.textContent = '';
+      }, 300);
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    window.c2OverlayOpen = c2OverlayOpen;
+    window.c2OverlayClose = c2OverlayClose;
+  });
+</script>

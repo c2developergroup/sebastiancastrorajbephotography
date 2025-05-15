@@ -1,0 +1,73 @@
+---
+interface Props {
+  videos: { src: string; w: number; h: number }[];
+}
+
+const { videos } = Astro.props;
+
+const gridCols = Math.min(videos.length, 3);
+let gridStyle = {
+  gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))`,
+  width: "100%",
+};
+if (gridCols <= 3) {
+  gridStyle = {
+    ...gridStyle,
+    width: `${(100 * gridCols) / 3}%`,
+  };
+}
+---
+
+<div class="w-full">
+  <div class="c2dev-gallery grid place-content-center p-20 gap-10 mx-auto" style={gridStyle}>
+    {videos.map((image) => (
+      <a
+        href={image.src}
+        data-cropped="true"
+        target="_blank"
+        class="flex items-center justify-center"
+      >
+        <video
+          src={image.src}
+          class="w-full h-auto"
+          autoplay
+          loop
+          muted
+        ></video>
+      </a>
+    ))}
+  </div>
+</div>
+<script>
+  const c2devGallery = (gallery: HTMLDivElement) => {
+    const items = gallery.querySelectorAll("a");
+    items.forEach((item: HTMLAnchorElement) => {
+      item.addEventListener("click", (e: Event) => {
+        e.preventDefault();
+        const videoSrc = item.getAttribute("href");
+        const video = document.createElement("video");
+        video.src = videoSrc!;
+        video.controls = true;
+        video.autoplay = true;
+        video.style.width = "auto";
+        video.style.height = "100%";
+
+        console.log("Overlay opened");
+
+        window.c2OverlayOpen(video);
+        
+        // modal.addEventListener("click", () => {
+        //   document.body.removeChild(modal);
+        //   video.pause();
+        //   video.remove();
+        // });
+      });
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", (_event) => {
+    document.querySelectorAll(".c2dev-gallery")!!.forEach((gallery) => {
+      c2devGallery(gallery as HTMLDivElement);
+    });
+  });
+</script>
